@@ -7,4 +7,4 @@ class Feedback(BaseModel):
 
     @property
     def to_json(self):
-        return {'msg': self.msg}
+        return {'msg': self.msg, 'id': self.id}

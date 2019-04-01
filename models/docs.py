@@ -9,4 +9,4 @@ class Docs(BaseModel):
 
     @property
     def to_json(self):
-        return {'title': self.title, 'desc': self.desc, 'url': self.url}
+        return {'title': self.title, 'desc': self.desc, 'url': self.url, 'id': self.id}
