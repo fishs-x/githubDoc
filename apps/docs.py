@@ -5,6 +5,6 @@ from models.docs import Docs
 bp = Blueprint('doc', __name__, url_prefix='/api/v1')
 
 
-@bp.route('/doc/list')
+@bp.route('/list/doc')
 def doc_list():
     return response(Docs.query.all())

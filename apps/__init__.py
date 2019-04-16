@@ -43,11 +43,12 @@ def register_blueprints(app):
     from .feedback import bp as fb_bp
     app.register_blueprint(fb_bp)
     from .files import bp as files_bp
+    app.register_blueprint(files_bp)
 
 
 def response(data=None, code=200, msg=''):
     if isinstance(data, list):
-        if isinstance(data[0], db.Model):
+        if data and isinstance(data[0], db.Model):
             res = [item.to_json for item in data]
         else:
             res = data
@@ -55,4 +56,4 @@ def response(data=None, code=200, msg=''):
     elif isinstance(data, db.Model):
         return jsonify(code=code, msg=msg, data=data.to_json)
     else:
-        return jsonify(code=code, msg=msg, data={})
+        return jsonify(code=code, msg=msg, data=data)
