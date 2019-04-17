@@ -47,6 +47,8 @@ def register_blueprints(app):
 
 
 def response(data=None, code=200, msg=''):
+    if data is None:
+        data = {}
     if isinstance(data, list):
         if data and isinstance(data[0], db.Model):
             res = [item.to_json for item in data]
