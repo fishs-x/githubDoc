@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, jsonify
 from config import ProdConfig, DevConfig
-from extensions import db
+from extensions import db, mail
 
 
 def create_app():
@@ -24,6 +24,7 @@ def create_app():
 
 def register_extensions(app):
     db.init_app(app)
+    mail.init_app(app)
     # migrate.init_app(app, db)
 
 

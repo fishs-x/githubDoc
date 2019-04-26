@@ -32,7 +32,7 @@ def list_dir():
     path = request.json.get('path', '')
     abs_path = root_dir + path
     for item in os.listdir(abs_path):
-        if item[-4:] in ['.png', '.git', 'nore', 'ENSE'  '.jpg', 'jpeg']:
+        if item[-4:] in ['.png', '.git', 'nore', 'ENSE'  '.jpg', 'jpeg', 'nore', '.yml']:
             continue
         data.append({"file_name": item, "path": os.path.join(path, item), "is_dir": os.path.isdir(os.path.join(abs_path, item))})
     return response(data)
